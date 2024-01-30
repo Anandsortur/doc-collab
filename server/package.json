@@ -22,7 +22,7 @@
     "cookie": "^0.4.2",
     "cors": "^2.8.5",
     "debug": "^4.3.4",
-    "dotenv": "^16.3.2",
+    "dotenv": "^16.4.1",
     "engine.io": "^6.5.4",
     "engine.io-parser": "^5.2.1",
     "fast-xml-parser": "^4.2.5",
@@ -82,7 +82,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "build":"npm i"
+    "build": "npm i"
   },
   "author": "",
   "license": "ISC"

@@ -1,7 +1,10 @@
-import mongoose  from 'mongoose';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const Connection = async (username = 'user1', password = 'admin') => {
-    const URL = `mongodb+srv://${username}:${password}@google-docs-clone.rq3e9tn.mongodb.net/?retryWrites=true&w=majority`;
+dotenv.config();
+
+const Connection = async () => {
+    const URL = process.env.MONGODB_URL;
 
     try {
         await mongoose.connect(URL, { useUnifiedTopology: true, useNewUrlParser: true });
