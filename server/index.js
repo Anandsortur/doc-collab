@@ -1,19 +1,22 @@
 import { Server } from 'socket.io';
-
+import express from 'express';
 import Connection from './database/db.js';
+import {createServer} from 'http';
 
 import { getDocument, updateDocument } from './controller/document-controller.js'
 
 const PORT = process.env.PORT || 9000;
+const URL = process.env.MONGODB_URI;
+Connection(URL);
 
-Connection();
+const app = express();
 
-const io = new Server(PORT, {
-    cors: {
-        origin: 'http://localhost:3000',
-        methods: ['GET', 'POST']
-    }
-});
+const httpServer = createServer(app);
+httpServer.listen(PORT);
+
+
+
+const io = new Server(httpServer);
 
 io.on('connection', socket => {
     socket.on('get-document', async documentId => {

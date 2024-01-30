@@ -3,8 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const Connection = async () => {
-    const URL = process.env.MONGODB_URL;
+const Connection = async (URL) => {
+    
 
     try {
         await mongoose.connect(URL, { useUnifiedTopology: true, useNewUrlParser: true });
