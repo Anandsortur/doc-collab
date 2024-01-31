@@ -4,13 +4,15 @@ import Connection from './database/db.js';
 import {createServer} from 'http';
 
 import { getDocument, updateDocument } from './controller/document-controller.js'
+import cors from 'cors';
+
 
 const PORT = process.env.PORT || 9000;
 const URL = process.env.MONGODB_URI;
 Connection(URL);
 
 const app = express();
-
+app.use(cors());
 const httpServer = createServer(app);
 httpServer.listen(PORT);
 

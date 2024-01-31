@@ -47,7 +47,7 @@ const Editor = () => {
     }, []);
 
     useEffect(() => {
-        const socketServer = io('https://doc-collab.onrender.com');
+        const socketServer = io('https://doc-collab.onrender.com', { path: '/socket.io' });
         setSocket(socketServer);
 
         return () => {
